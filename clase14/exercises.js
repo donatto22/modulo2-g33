@@ -37,6 +37,7 @@ console.log(slug[0])
 
 let dni = "      1 7 2 3 3    4 5 6 7 5  "
 console.log(Number(dni.replace(/\s+/g, "")))
+// 1723345675
 
 slug.toUpperCase()
 
@@ -50,3 +51,4 @@ if (usuario.charAt(0) == "@") {
 } else {
     console.log("no es usuario")
 }
+
