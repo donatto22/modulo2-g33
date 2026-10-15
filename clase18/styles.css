@@ -1,0 +1,33 @@
+.ejemplo {
+    padding: 10px 20px;
+    border: 0;
+    color: #dedede;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 20px rgb(63, 63, 63);
+    border-radius: 10px;
+    font-family: 'Candara Light';
+    cursor: pointer;
+    transition: background-color .1s linear;
+}
+
+.ejemplo:hover {
+    background-color: #454545;
+}
+
+/* para el botón 2 */
+#ejemplo2 {
+    padding: 10px 20px;
+    border: 0;
+    color: #e6d0ff;
+    background-color: #57009e;
+    box-shadow: 0 0 20px rgb(72, 8, 169);
+    border-radius: 10px;
+    font-family: 'Candara Light';
+    cursor: pointer;
+    outline: 2px solid #c99ff9;
+    transition: background-color .1s linear;
+}
+
+#ejemplo2:hover {
+    background-color: #454545;
+}

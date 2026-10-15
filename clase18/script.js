@@ -50,3 +50,43 @@ console.log(document.getElementsByClassName('titulos'))
 
 // cambiando el texto de algún elemento
 document.querySelector('p').textContent = "Hola, aún te extraño"
+
+// -----------------------------
+// Aprendiendo a cambiar el css
+
+const paragraph = document.querySelector('p')
+
+paragraph.style.fontSize = "30px"
+paragraph.style.color = "red"
+paragraph.style.borderBottom = "4px solid pink"
+paragraph.style.backgroundColor = "beige"
+paragraph.style.borderRadius = "20px"
+paragraph.style.padding = "20px"
+paragraph.style.width = "fit-content"
+
+// 2da forma
+// --------------------
+// agregando una clase
+document.getElementById('bonito').classList.add('ejemplo')
+// agregando con id
+document.getElementById('bonito2').id = 'ejemplo2'
+
+// -----------------------------
+// creando un elemento
+const frase = document.createElement('p')
+frase.textContent = "Ya te superé"
+frase.style.color = "blue"
+frase.style.fontSize = "20px"
+frase.style.fontWeight = "bold"
+
+// llamamos al elemento y colocamos a su hijo dentro
+document.querySelector('body').append(frase)
+
+// prepend - agrega como primer hijo
+// append o appendChild - agregan un hijo más como último
+
+//  actual   - más antiguo
+// append    - appendChild 
+//   SI      -     NO              | Acepta Textos
+//   SI      -  Solo uno           | Acepta varios elementos a la vez
+// undefined -  El elemento creado | Retorna algo?
