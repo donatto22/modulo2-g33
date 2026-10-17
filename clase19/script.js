@@ -74,3 +74,17 @@ button2.addEventListener('click', () => {
 
     console.log(datos)
 })
+
+// ------------------
+const numero = document.getElementById('number')
+
+const addBtn = document.getElementById('add')
+const minusBtn = document.getElementById('minus')
+
+addBtn.addEventListener('click', () => {
+    numero.textContent = (Number(numero.textContent) + 1)
+})
+
+minusBtn.addEventListener('click', () => {
+    numero.textContent = (Number(numero.textContent) - 1)
+})
