@@ -8,36 +8,46 @@
 </head>
 
 <body>
-    <form>
+    <form id="formulario">
         <div>
             <label for="">Texto (nombre)</label>
-            <input id="nombre" type="text">
+            <input name="juguete" id="nombre" type="text">
         </div>
         <div>
             <label for="">Numero (edad)</label>
-            <input id="edad" type="number">
+            <input name="edad" id="edad" type="number">
         </div>
         <div>
             <label for="">Password</label>
-            <input id="password" type="password">
+            <input name="password" id="password" type="password">
         </div>
         <div>
             <label for="">Email</label>
-            <input id="correo" type="email">
+            <input name="correo" id="correo" type="email">
         </div>
         <div>
             <label for="">Acepta terminos y servicios</label>
-            <input id="service" type="checkbox">
+            <input name="service" id="service" type="checkbox">
         </div>
         <div>
             <label for="">Fecha que terminaste con ella</label>
-            <input id="fecha" type="date">
+            <input name="fecha" id="fecha" type="date">
+        </div>
+
+        <div>
+            <label for="">Selecciona tu pais</label>
+            <select name="pais" id="pais">
+                <option value="pe">Perú</option>
+                <option value="cl">Chile</option>
+                <option value="kr">Corea</option>
+            </select>
         </div>
 
         <!-- por defecto, los botones que se colocan
          dentro de un formulario, asumen que vas a enviar
          datos. por eso al darle click ves que se recarga la página -->
         <button type="button" id="btnVerDatos">Mostrar datos</button>
+        <button type="button" id="btnVerDatos2">Mostrar datos sin constantes</button>
     </form>
     <script src="./script.js"></script>
 </body>

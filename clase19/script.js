@@ -4,6 +4,7 @@ const password = document.getElementById("password")
 const correo = document.getElementById("correo")
 const fecha = document.getElementById("fecha")
 const service = document.getElementById("service")
+const selectPais = document.getElementById('pais')
 // para los inputs no es textContent, es .value
 // el editor no sabe qué elemento es el que se ha traido con
 // ese ID
@@ -16,27 +17,34 @@ boton.addEventListener('click', () => {
     const valCorreo = correo.value
 
     console.log(nombre.value)
+
+    // en el select, el .value obtiene el value del
+    // option seleccionado
+    console.log(selectPais.value)
+    // en caso necesites el texto que está dentro...
+    console.log(selectPais.options[selectPais.selectedIndex].text)
+
     // Se debe mostrar una alerta en caso
     // la edad registrada sea menor de edad
-    if (Number(edad.value) >= 18) {
-        console.log(edad.value)
-    } else {
-        alert(123)
-    }
+    // if (Number(edad.value) >= 18) {
+    //     console.log(edad.value)
+    // } else {
+    //     alert(123)
+    // }
 
     // la contraseña tenga que tenga al menos 8 dígitos
     console.log(password.value)
     // el correo debe de contener @gmail.com
     console.log(correo.value)
 
-    if (valPassword.length < 8) {
-        alert("Contraseña invalidaa")
-        return
-    }
-    if (!valCorreo.includes("@gmail.com")) {
-        alert("Corro iinvalidooo")
-        return
-    }
+    // if (valPassword.length < 8) {
+    //     alert("Contraseña invalidaa")
+    //     return
+    // }
+    // if (!valCorreo.includes("@gmail.com")) {
+    //     alert("Corro iinvalidooo")
+    //     return
+    // }
 
     console.log(valPassword)
     console.log(valCorreo)
@@ -54,3 +62,15 @@ boton.addEventListener('click', () => {
 // boton.addEventListener('click', () => {
 //     console.log("hola")
 // })
+
+// -------------------------
+const button2 = document.getElementById('btnVerDatos2')
+
+button2.addEventListener('click', () => {
+    const form = document.getElementById('formulario')
+
+    const formData = new FormData(form)
+    const datos = Object.fromEntries(formData)
+
+    console.log(datos)
+})
