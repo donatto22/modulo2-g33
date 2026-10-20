@@ -88,3 +88,14 @@ addBtn.addEventListener('click', () => {
 minusBtn.addEventListener('click', () => {
     numero.textContent = (Number(numero.textContent) - 1)
 })
+
+
+const btn = document.getElementById('nuevaAlerta')
+
+btn.addEventListener('click', () => {
+    Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+    })
+})
