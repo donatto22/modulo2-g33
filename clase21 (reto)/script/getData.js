@@ -19,6 +19,7 @@ fetch('./data.json')
             const imgPais = document.createElement('img')
             const descripcionPais = document.createElement('div')
             const nombrePais = document.createElement('h3')
+            const linkPais = document.createElement('a')
             const infoPais = document.createElement('div')
 
             const population = document.createElement('p')
@@ -32,7 +33,10 @@ fetch('./data.json')
             // -------------
             // llenando los datos
             imgPais.src = pais.flag
-            nombrePais.textContent = pais.name
+            linkPais.textContent = pais.name
+            linkPais.href = `./pages/country.html?code=${pais.alpha3Code}&population=${pais.population}`
+
+            nombrePais.appendChild(linkPais)
             // a diferencia de textContent, este puede procesar html dentro del texto
             population.innerHTML = `<b>Population:</b> ${pais.population}`
             region.innerHTML = `<b>Region:</b> ${pais.region}`
