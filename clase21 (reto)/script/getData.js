@@ -1,45 +1,64 @@
 import { createCard } from './createCard.js'
 
-fetch('./data.json')
+let paises = []
 
-    .then(response => {
-        return response.json()
+const getData = async () => {
+    const res = await fetch('./data.json')
+    const data = await res.json()
+    paises = data
+
+    paises.forEach(pais => {
+        createCard(pais)
     })
+}
 
-    .then(data => {
-        // for(let i = 0; i <= data.length; i++) {
-        //     console.log(data[i])
-        // }
+getData()
 
-        // por detrás el forEach funciona como:
-        // let i = 0; i <= data.length; i++
-        // siempre va hacia delante y de uno en uno
-        // filtro de búsqueda
-        const paisFilter = document.getElementById('paisFilter')
 
-        paisFilter.addEventListener('input', () => {
-            // cada vez que se escribe o borra una letra, entonces
-            // limpiamos el contenido de paises anterior
-            // eso significa que borrará la data cargada por primera vez
-            document.getElementById('countries').innerHTML = ''
+// por detrás el forEach funciona como:
+// let i = 0; i <= data.length; i++
+// siempre va hacia delante y de uno en uno
+// filtro de búsqueda
+const paisFilter = document.getElementById('paisFilter')
 
-            if (paisFilter.value != '') {
-                const paisesFiltrados = data.filter(pais => pais.name.includes(paisFilter.value))
+paisFilter.addEventListener('input', () => {
+    // cada vez que se escribe o borra una letra, entonces
+    // limpiamos el contenido de paises anterior
+    // eso significa que borrará la data cargada por primera vez
+    document.getElementById('countries').innerHTML = ''
 
-                paisesFiltrados.forEach(pais => {
-                    createCard(pais)
-                })
-            }
+    if (paisFilter.value != '') {
+        const paisesFiltrados = paises.filter(pais => pais.name.includes(paisFilter.value))
 
-            else {
-                data.forEach(pais => {
-                    createCard(pais)
-                })
-            }
-        })
-
-        // la 1era vez que carga la data
-        data.forEach(pais => {
+        paisesFiltrados.forEach(pais => {
             createCard(pais)
         })
+    }
+
+    else {
+        paises.forEach(pais => {
+            createCard(pais)
+        })
+    }
+})
+
+// filtro del select
+const selectContinente = document.getElementById('continentes')
+
+selectContinente.addEventListener('change', async () => {
+    await getData()
+    document.getElementById('countries').innerHTML = ''
+    const valor = selectContinente.value
+
+    if (valor == "*") {
+        await getData()
+    }
+
+    const paisesFiltrados = paises.filter(pais => pais.region == valor)
+
+    paises = paisesFiltrados
+
+    paises.forEach(pais => {
+        createCard(pais)
     })
+})
